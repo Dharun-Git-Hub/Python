@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programs</title>
+    <style>
+        body{
+            user-select: none;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(252, 248, 248);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        div{
+            width: 95%;
+            height: 20%;
+            margin: 10px;
+            margin-top: 20px;
+            background: transparent;
+            color: rgb(4,4,4);
+            border-top: 2px solid magenta;
+            border-bottom: 2px solid magenta;
+            border-left: 2px solid magenta;
+            border-right: 2px solid magenta;
+            font-size: 1.5em;
+            display: flex;
+            flex: 0 0 auto;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        div:hover{
+            border-top: 2px solid #e5db1a;
+            border-bottom: 2px solid #e5db1a;
+            border-left: 2px solid #e5db1a;
+            border-right: 2px solid #e5db1a;
+        }
+    </style>
+</head>
+<body>
+
+        <div>Student-Details</div>
+        <div>Dictionaries</div>
+        <div>Factorial</div>
+        <div>Extract-Words</div>
+        <div>Electricity-Bill</div>
+        <div>Kilometer-Meter</div>
+        <div>Pyramid</div>
+        <div>Largest-Number</div>
+        <div>Exponential</div>
+        <div>Odd-or-Even</div>
+        <div>Positive-Negative</div>
+        <div>Prime-Number</div>
+        <div>Exception-Handling</div>
+        <div>Tuples</div>
+        <div>Lists</div>
+        <div>Notify</div>
+</body>
+<script>
+    const divs = document.querySelectorAll('div');
+    divs.forEach(div => {
+        div.addEventListener('click', () => {
+            const text = div.innerText;
+            window.location.href = `resultPage.html?program=${encodeURIComponent(text)}`;
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(252, 248, 248);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        textarea{
+            width: 95%;
+            height: 70%;
+            margin: 10px;
+            margin-top: 20px;
+            background-color: rgb(248, 236, 236);
+            color: rgb(256,0,0);
+            border-top: 2px solid magenta;
+            border-bottom: 2px solid magenta;
+            border-left: 2px solid magenta;
+            border-right: 2px solid magenta;
+            font-size: 1.5em;
+            display: flex;
+            flex: 0 0 auto;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            line-height: 1.3;
+        }
+        textarea::selection{
+            background-color: #ff2976;
+            color: white;
+        }
+        textarea::-webkit-scrollbar{
+            display: none;
+        }
+        button{
+            width: 10%;
+            height: 5%;
+            margin: 10px;
+            background-color: rgb(3, 3, 100);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            animation: beat 2s infinite;
+            cursor: pointer;
+        }
+        @keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 5px rgb(3,3,100));
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        button:hover{
+            background-color: rgb(3, 3, 150);
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <textarea style="user-select: none;" readonly>
+    </textarea>
+    <button onclick="copyToClipboard()">Copy</button>
+    <script type="module">
+const data = {
+
+"Student-Details": {
+    "Code": "def get_details():\n    name = input('Enter the student name: ')\n    rollno = input(\"Enter the student roll number: \")\n    age = input(\"Enter the student age: \")\n    mark = input(\"Enter the student mark: \")\n    return name, rollno, age, mark\n\n\ndef display_details(name, rollno, age, mark):\n    print(\"Student Name:\", name)\n    print(\"Student Roll Number:\", rollno)\n    print(\"Student Age:\", age)\n    print(\"Student Mark:\", mark)\n\n\nname, rollno, age, mark = get_details()\ndisplay_details(name, rollno, age, mark)"
+},
+"Dictionaries": {
+    "Code": "student = {\n \"Name\": \"Alan\",\n \"Roll no\": \"115\",\n \"Age\": 20,\n \"Mark\": 94\n}\nprint(\"Student name:\", student[\"Name\"])\nprint(\"Student roll no:\", student.get(\"Roll no\"))\nstudent[\"Address\"] = \"madurai\"\nprint(\"Dictionary after adding Address:\", student)\nstudent[\"Mark\"] = 60\nprint(\"Dictionary after updating marks:\", student)\ndel student[\"Address\"]\nprint(\"Dictionary after removing address:\", student)"
+},
+"Factorial": {
+    "Code": "n = int(input(\"Enter a number: \"))\nif n < 0:\n    print(\"Factorial is not defined for negative numbers.\")\nelse:\n    factorial = 1\n    for i in range(1, n + 1):\n        factorial *= i\n    print(f\"The factorial of {n} is {factorial}\")"
+},
+"Extract-Words": {
+    "Code": "import re\n\ndef extract_unique_words(file_path):\n    try:\n        with open(file_path, 'r', encoding='utf-8') as file:\n            text = file.read()\n            words = re.findall(r'\\b\\w+\\b', text.lower())  # Extract words using regex\n            unique_words = sorted(set(words))  # Get unique words and sort them\n\n            for word in unique_words:\n                print(word)\n\n    except FileNotFoundError:\n        print(f\"Error: The file at '{file_path}' was not found.\")\n    except IOError:\n        print(f\"Error: Issue reading the file '{file_path}'.\")\n    except Exception as e:\n        print(f\"An unexpected error occurred: {e}\")\n\nfile_path = input(\"Enter the path to the text file: \")\nextract_unique_words(file_path)" 
+},
+"Electricity-Bill": {
+    "Code": "def calculate_electricity_bill(units):\n    if units <= 100:\n        cost = 0.0\n    elif units <= 200:\n        cost = (units - 100) * 2.50\n    elif units <= 300:\n        cost = 100 * 2.50 + (units - 200) * 3.00\n    elif units <= 400:\n        cost = 100 * 2.50 + 100 * 3.00 + (units - 300) * 5.00\n    else:\n        cost = 100 * 2.50 + 100 * 3.00 + 100 * 5.00 + (units - 400) * 6.00\n    return cost\n\nunits = int(input(\"Enter the number of units consumed: \"))\nbill = calculate_electricity_bill(units)\nprint(f\"Electricity Bill: {bill:.2f} Rupees\")"
+},
+"Kilometer-Meter": {
+    "Code": "kilometers = float(input(\"Enter value in kilometers: \"))\nconv_fac = 0.621371  # Conversion factor\nmiles = kilometers * conv_fac\nprint('%0.2f kilometers is equal to %0.2f miles' % (kilometers, miles))"
+},
+"Pyramid": {
+    "Code": "def full_pyramid(n):\n    for i in range(1, n + 1):\n        for j in range(n - i):\n            print(\" \", end=\" \")\n        for k in range(1, 2 * i):\n            print(\"*\", end=\" \")\n        print()\n\nfull_pyramid(5)"
+},
+"Largest-Number": {
+    "Code": "num1 = float(input(\"Enter the first number: \"))\nnum2 = float(input(\"Enter the second number: \"))\nnum3 = float(input(\"Enter the third number: \"))\nif num1 > num2 and num1 >= num3:\n    largest = num1\nelif num2 > num1 and num2 > num3:\n    largest = num2\nelse:\n    largest = num3\nprint(f\"The Largest number is: {largest}\")"
+},
+"Exponential": {
+    "Code": "base = float(input(\"Enter the base number: \"))\nexponent = float(input(\"Enter the exponent: \"))\nresult = base ** exponent\nprint(f\"The result of {base} raised to the power of {exponent} is: {result}\")"
+},
+"Odd-or-Even": {
+    "Code": "n = int(input(\"Enter a number: \"))\nif n % 2 == 0:\n    print(f\"{n} is an even number.\")\nelse:\n    print(f\"{n} is an odd number.\")"
+},
+"Positive-Negative": {
+    "Code": "num = float(input(\"Enter a number: \"))\nif num > 0:\n    print(f\"{num} is a positive number.\")\nelif num == 0:\n    print(f\"{num} is zero.\")\nelse:\n    print(f\"{num} is a negative number.\")"
+},
+"Prime-Number": {
+    "Code": "num = int(input(\"Enter a number: \"))\nif num > 1:\n    for i in range(2, (num//2)):\n        if (num % i) == 0:\n            print(f\"{num} is not a prime number.\")\n            break\n    else:\n        print(f\"{num} is a prime number.\")\nelse:\n    print(f\"{num} is not a prime number.\")"
+},
+"Exception-Handling": {
+    "Code": "try:\n    num = float(input(\"Enter a number: \"))\n    result = 10 / num\n    print(f\"Result: {result}\")\nexcept ZeroDivisionError:\n    print(\"Error: Cannot divide by zero.\")\nexcept ValueError:\n    print(\"Error: Please enter a valid number.\")"
+},
+"Tuples": {
+    "Code": "person_info = (\"Anand\", 20, \"Software developer\", 55.5)\nprint(\"Name:\", person_info[0])\nprint(\"Age:\", person_info[1])\nprint(\"Occupation:\", person_info[2])\nprint(\"Weight:\", person_info[3])\naddress = (1099, \"Avaniyapuram\", \"Madurai\", 625005)\nprint(\"Address:\", address)\nfull_info = person_info + address\nprint(\"Full information:\", full_info)"
+},
+"Lists": {
+    "Code": "fruits = [\"Apple\", \"Banana\", \"Cherry\"]\nprint(\"Fruits in the list:\")\nfor fruit in fruits:\n    print(fruit)\nprint(\"First fruit:\", fruits[0])\nprint(\"Last fruit:\", fruits[-1])\nfruits.append(\"Elderberry\")\nprint(\"List after adding a fruit:\", fruits)\nfruits.insert(2, \"Mango\")\nprint(\"List after inserting a fruit at index 2:\", fruits)\nfruits.remove(\"Banana\")\nprint(\"List after removing banana:\", fruits)"
+},
+"Notify": {
+    "Code": "package com.example.notificationapp;\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.core.app.NotificationCompat;\nimport androidx.core.app.NotificationManagerCompat;\nimport android.app.NotificationChannel;\nimport android.app.NotificationManager;\nimport android.os.Build;\nimport android.os.Bundle;\nimport android.view.View;\nimport android.widget.Button;\n\npublic class MainActivity extends AppCompatActivity {\n    private final String CHANNEL_ID = \"notification_channel\";\n    private final int NOTIFICATION_ID = 101;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n        createNotificationChannel();\n\n        findViewById(R.id.btnShowNotification).setOnClickListener(v -> showNotification());\n    }\n\n    private void createNotificationChannel() {\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {\n            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, \"Notifications\", NotificationManager.IMPORTANCE_DEFAULT);\n            channel.setDescription(\"Sample Notification Channel\");\n            getSystemService(NotificationManager.class).createNotificationChannel(channel);\n        }\n    }\n\n    private void showNotification() {\n        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)\n                .setSmallIcon(R.drawable.ic_launcher_foreground)\n                .setContentTitle(\"Sample Notification\")\n                .setContentText(\"This is a simple notification.\")\n                .setPriority(NotificationCompat.PRIORITY_DEFAULT);\n\n        NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, builder.build());\n    }\n}"
+},
+};
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        const program = urlParams.get('program');
+    
+        const programData = data[program.replace(/\s+/g, '')];
+        const code = programData ? programData.Code : 'Code not found for the selected program.';
+    
+        const textarea = document.querySelector('textarea');
+        textarea.textContent = code;
+    </script>
+    <script>
+                function copyToClipboard() {
+                var copyText = document.querySelector("textarea");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+                alert("Copied the text: " + copyText.value);
+            }
+    </script>
+</body>
+</html>
